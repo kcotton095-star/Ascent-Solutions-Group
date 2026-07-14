@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ascent Solutions Group — AI-powered after-hours plumbing answering service exclusively for South Carolina plumbers. Never miss an emergency call again." />
+  <title>Ascent Solutions Group | After-Hours Plumbing Answering Service</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1A1A2E;
+      line-height: 1.6;
+      background: #fff;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── TOKENS ── */
+    :root {
+      --navy:      #0D1B3E;
+      --navy-mid:  #122252;
+      --blue:      #1565C0;
+      --blue-lt:   #1E88E5;
+      --orange:    #F07820;
+      --orange-dk: #D96A10;
+      --gray-bg:   #F5F7FA;
+      --gray-bdr:  #E2E8F0;
+      --text:      #1A1A2E;
+      --text-lt:   #4A5568;
+      --white:     #FFFFFF;
+      --radius:    8px;
+      --shadow:    0 4px 24px rgba(13,27,62,.12);
+      --shadow-lg: 0 8px 40px rgba(13,27,62,.18);
+    }
+
+    /* ── UTILITY ── */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--orange); color: #fff;
+      font-family: 'Poppins', sans-serif; font-weight: 600; font-size: .95rem;
+      padding: 14px 28px; border-radius: 6px;
+      border: none; cursor: pointer;
+      transition: background .2s, transform .15s;
+    }
+    .btn-primary:hover { background: var(--orange-dk); transform: translateY(-1px); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--white);
+      font-family: 'Poppins', sans-serif; font-weight: 600; font-size: .95rem;
+      padding: 13px 26px; border-radius: 6px;
+      border: 2px solid rgba(255,255,255,.65); cursor: pointer;
+      transition: border-color .2s, background .2s;
+    }
+    .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,.08); }
+    .badge {
+      display: inline-block;
+      background: var(--orange); color: #fff;
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: .65rem;
+      letter-spacing: .08em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 3px;
+    }
+    .section-label {
+      font-family: 'Poppins', sans-serif; font-weight: 600;
+      font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--blue-lt); margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Poppins', sans-serif; font-weight: 700;
+      font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--navy);
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 1.05rem; color: var(--text-lt); max-width: 600px;
+    }
+
+    /* ════════════════════════
+       NAVBAR
+    ════════════════════════ */
+    .navbar {
+      background: var(--navy);
+      position: sticky; top: 0; z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .navbar-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px; gap: 16px;
+    }
+    .navbar-logo img { height: 38px; width: auto; }
+    .navbar-links {
+      display: flex; align-items: center; gap: 6px;
+      list-style: none;
+    }
+    .navbar-links a {
+      color: rgba(255,255,255,.8);
+      font-size: .9rem; font-weight: 500;
+      padding: 6px 14px; border-radius: 5px;
+      transition: color .2s, background .2s;
+    }
+    .navbar-links a:hover { color: #fff; background: rgba(255,255,255,.08); }
+    .navbar-right {
+      display: flex; align-items: center; gap: 16px;
+    }
+    .navbar-phone {
+      color: rgba(255,255,255,.9); font-size: .9rem; font-weight: 600;
+      display: flex; align-items: center; gap: 7px;
+      white-space: nowrap;
+    }
+    .navbar-phone i { color: var(--orange); }
+    .hamburger {
+      display: none; background: none; border: none; cursor: pointer;
+      color: #fff; font-size: 1.4rem; padding: 4px;
+    }
+    @media (max-width: 820px) {
+      .navbar-links, .navbar-phone { display: none; }
+      .hamburger { display: block; }
+    }
+
+    /* ════════════════════════
+       HERO
+    ════════════════════════ */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #1a2d5a 60%, #1565C0 100%);
+      position: relative; overflow: hidden;
+      padding: 72px 0 64px;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 440px;
+      gap: 48px; align-items: center;
+      position: relative;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15);
+      border-radius: 20px; padding: 5px 14px;
+      color: rgba(255,255,255,.9); font-size: .8rem; font-weight: 500;
+      margin-bottom: 20px;
+    }
+    .hero-eyebrow span { color: #7DDFFF; }
+    .hero h1 {
+      font-family: 'Poppins', sans-serif; font-weight: 800;
+      font-size: clamp(2rem, 4vw, 3rem); color: var(--white);
+      line-height: 1.15; margin-bottom: 16px;
+    }
+    .hero-sub {
+      font-family: 'Poppins', sans-serif; font-weight: 600;
+      font-size: 1.15rem; color: #7DDFFF;
+      margin-bottom: 16px;
+    }
+    .hero p {
+      color: rgba(255,255,255,.8); font-size: 1.0rem;
+      max-width: 500px; margin-bottom: 32px; line-height: 1.7;
+    }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 40px; }
+    .hero-trust {
+      display: flex; gap: 28px; flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 7px;
+      color: rgba(255,255,255,.75); font-size: .85rem;
+    }
+    .trust-item i { color: var(--orange); font-size: .9rem; }
+
+    /* Call Card */
+    .call-card {
+      background: var(--white); border-radius: 12px;
+      box-shadow: var(--shadow-lg); overflow: hidden;
+    }
+    .call-card-header {
+      background: var(--navy); padding: 14px 20px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .call-card-header h4 {
+      font-family: 'Poppins', sans-serif; font-weight: 700;
+      color: var(--white); font-size: .95rem;
+    }
+    .call-card-header p { color: rgba(255,255,255,.65); font-size: .75rem; margin-top: 2px; }
+    .call-card-body { padding: 20px; }
+    .call-section { margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--gray-bdr); }
+    .call-section:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .call-section-label {
+      display: flex; align-items: center; gap: 8px;
+      font-family: 'Poppins', sans-serif; font-weight: 700;
+      font-size: .7rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 10px;
+    }
+    .call-section-label i { font-size: .85rem; }
+    .call-row { display: grid; grid-template-columns: 80px 1fr; gap: 4px 8px; font-size: .82rem; }
+    .call-row .lbl { color: var(--text-lt); font-weight: 500; }
+    .call-row .val { color: var(--text); font-weight: 600; }
+    .urgency-chip {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: #FFF3E0; color: #E65100;
+      font-weight: 700; font-size: .75rem;
+      padding: 3px 10px; border-radius: 20px;
+    }
+    .call-notes p { font-size: .82rem; color: var(--text-lt); line-height: 1.5; }
+    .call-view-btn {
+      display: block; width: 100%; text-align: center;
+      background: var(--navy); color: var(--white);
+      font-family: 'Poppins', sans-serif; font-weight: 600; font-size: .85rem;
+      padding: 13px; border-radius: 7px; margin-top: 16px;
+      border: none; cursor: pointer;
+      transition: background .2s;
+    }
+    .call-view-btn:hover { background: var(--blue); }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .call-card { max-width: 480px; }
+    }
+
+    /* ════════════════════════
+       FEATURE STRIP
+    ════════════════════════ */
+    .features-strip { padding: 52px 0; background: var(--white); }
+    .features-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+    .feature-item { text-align: center; }
+    .feature-icon {
+      width: 56px; height: 56px;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 14px;
+      color: var(--white); font-size: 1.3rem;
+    }
+    .feature-item h3 {
+      font-family: 'Poppins', sans-serif; font-weight: 700;
+      font-size: .95rem; color: var(--navy); margin-bottom: 7px;
+    }
+    .feature-item p { font-size: .85rem; color: var(--text-lt); line-height: 1.5; }
+    @media (max-width: 700px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ════════════════════════
+       HOW IT WORKS
+    ════════════════════════ */
+    .how-it-works { padding: 72px 0; background: var(--gray-bg); }
+    .how-header { text-align: center; margin-bottom: 52px; }
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0; position: relative;
+    }
+    .steps-grid::before {
+      content: '';
+      position: absolute; top: 28px; left: 12%; right: 12%;
+      height: 2px; background: linear-gradient(90deg, var(--navy), var(--blue));
+      z-index: 0;
+    }
+    .step {
+      text-align: center; padding: 0 12px;
+      position: relative; z-index: 1;
+    }
+    .step-num {
+      width: 56px; height: 56px;
+      background: var(--navy); color: var(--white);
+      border-radius: 50%; margin: 0 auto 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.2rem;
+      border: 3px solid var(--gray-bg);
+      box-shadow: 0 0 0 3px var(--navy);
+    }
+    .step-icon {
+      font-size: 1.4rem; color: var(--blue-lt); margin-bottom: 12px;
+    }
+    .step h3 {
+      font-family: 'Poppins', sans-serif; font-weight: 700;
+      font-size: .95rem; color: var(--navy); margin-bottom: 8px;
+    }
+    .step p { font-size: .85rem; color: var(--text-lt); line-height: 1.5; }
+    @media (max-width: 700px) {
+      .steps-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+      .steps-grid::before { display: none; }
+    }
+
+    /* ════════════════════════
+       STATS BAR
+    ════════════════════════ */
+    .stats-bar {
+      background: linear-gradient(90deg, var(--navy), var(--blue));
+      padding: 40px 0;
+    }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 24px; text-align: center;
+    }
+    .stat-num {
+      font-family: 'Poppins', sans-serif; font-weight: 800;
+      font-size: 2.2rem; color: var(--white); line-height: 1;
+    }
+    .stat-num span { color: var(--orange); }
+    .stat-label {
+      font-size: .82rem; color: rgba(255,255,255,.75);
+      margin-top: 5px; line-height: 1.4;
+    }
+    @media (max-width: 700px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+    }
+
+    /* ════════════════════════
+       PRICING
+    ════════════════════════ */
+    .pricing { padding: 80px 0; background: var(--white); }
+    .pricing-header { text-align: center; margin-bottom: 52px; }
+    .pricing-note {
+      display: inline-block;
+      background: #E8F5E9; color: #2E7D32;
+      font-size: .8rem; font-weight: 600;
+      padding: 5px 14px; border-radius: 20px; margin-bottom: 16px;
+    }
+    .pricing-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; align-items: stretch;
+    }
+    .price-card {
+      border: 2px solid var(--gray-bdr); border-radius: 12px;
+      overflow: hidden; position: relative;
+      transition: box-shadow .25s, transform .25s;
+    }
+    .price-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .price-card.popular {
+      border-color: var(--blue); box-shadow: var(--shadow);
+    }
+    .popular-badge {
+      background: var(--blue); color: #fff;
+      text-align: center; padding: 8px;
+      font-family: 'Poppins', sans-serif; font-weight: 700;
+      font-size: .7rem; letter-spacing: .1em; text-transform: uppercase;
+    }
+    .price-card-header {
+      background: var(--gray-bg); padding: 28px 28px 20px;
+      border-bottom: 1px solid var(--gray-bdr);
+    }
+    .price-tier {
+      font-family: 'Poppins', sans-serif; font-weight: 700;
+      font-size: .8rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 8px;
+    }
+    .price-amount {
+      font-family: 'Poppins', sans-serif; font-weight: 800;
+      font-size: 2.6rem; color: var(--navy); line-height: 1;
+    }
+    .price-amount sup { font-size: 1.2rem; vertical-align: top; margin-top: 6px; }
+    .price-amount sub { font-size: .85rem; font-weight: 500; color: var(--text-lt); }
+    .price-setup {
+      font-size: .78rem; color: var(--text-lt); margin-top: 4px;
+    }
+    .price-body { padding: 24px 28px 28px; }
+    .price-included {
+      font-family: 'Poppins', sans-serif; font-weight: 600;
+      font-size: .85rem; color: var(--navy); margin-bottom: 16px;
+    }
+    .price-features { list-style: none; margin-bottom: 24px; }
+    .price-features li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: .88rem; color: var(--text-lt);
+      margin-bottom: 11px;
+    }
+    .price-features li i {
+      color: #2E7D32; margin-top: 2px; font-size: .9rem; flex-shrink: 0;
+    }
+    .price-overage {
+      background: var(--gray-bg); border-radius: 6px;
+      padding: 10px 14px; font-size: .8rem; color: var(--text-lt);
+      margin-bottom: 20px;
+    }
+    .price-overage strong { color: var(--navy); }
+    .price-cta {
+      display: block; width: 100%; text-align: center;
+      background: var(--navy); color: var(--white);
+      font-family: 'Poppins', sans-serif; font-weight: 600;
+      padding: 13px; border-radius: 7px; font-size: .9rem;
+      border: none; cursor: pointer;
+      transition: background .2s;
+    }
+    .price-cta:hover { background: var(--blue); }
+    .price-card.popular .price-cta { background: var(--orange); }
+    .price-card.popular .price-cta:hover { background: var(--orange-dk); }
+    .pricing-disclaimer {
+      text-align: center; margin-top: 28px;
+      font-size: .82rem; color: var(--text-lt); line-height: 1.6;
+    }
+    @media (max-width: 820px) {
+      .pricing-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
+    }
+
+    /* ════════════════════════
+       TESTIMONIALS
+    ════════════════════════ */
+    .testimonials { padding: 72px 0; background: var(--gray-bg); }
+    .testimonials-header { text-align: center; margin-bottom: 44px; }
+    .testi-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .testi-card {
+      background: var(--white); border-radius: 10px;
+      padding: 28px; box-shadow: 0 2px 12px rgba(13,27,62,.07);
+    }
+    .testi-stars { color: #F9A825; margin-bottom: 12px; font-size: .9rem; }
+    .testi-text {
+      font-size: .9rem; color: var(--text); line-height: 1.65;
+      margin-bottom: 18px; font-style: italic;
+    }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white); font-family: 'Poppins', sans-serif;
+      font-weight: 700; font-size: 1rem; flex-shrink: 0;
+    }
+    .testi-name {
+      font-family: 'Poppins', sans-serif; font-weight: 700;
+      font-size: .88rem; color: var(--navy);
+    }
+    .testi-company { font-size: .78rem; color: var(--text-lt); }
+    @media (max-width: 700px) {
+      .testi-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ════════════════════════
+       FAQ
+    ════════════════════════ */
+    .faq { padding: 72px 0; background: var(--white); }
+    .faq-inner { max-width: 760px; margin: 0 auto; }
+    .faq-header { text-align: center; margin-bottom: 44px; }
+    .faq-item {
+      border-bottom: 1px solid var(--gray-bdr);
+    }
+    .faq-question {
+      width: 100%; background: none; border: none; cursor: pointer;
+      padding: 20px 0; text-align: left;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px;
+    }
+    .faq-question span {
+      font-family: 'Poppins', sans-serif; font-weight: 600;
+      font-size: .95rem; color: var(--navy);
+    }
+    .faq-question i {
+      color: var(--blue); font-size: .9rem; flex-shrink: 0;
+      transition: transform .25s;
+    }
+    .faq-item.open .faq-question i { transform: rotate(180deg); }
+    .faq-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height .35s ease, padding .25s;
+    }
+    .faq-item.open .faq-answer { max-height: 300px; padding-bottom: 18px; }
+    .faq-answer p { font-size: .9rem; color: var(--text-lt); line-height: 1.7; }
+
+    /* ════════════════════════
+       SMS / TWILIO LEGAL
+    ════════════════════════ */
+    .sms-legal { padding: 64px 0; background: #EFF3FA; border-top: 3px solid var(--navy); }
+    .sms-legal-inner { max-width: 860px; margin: 0 auto; }
+    .sms-legal-header {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 32px;
+    }
+    .sms-legal-header .icon-wrap {
+      width: 52px; height: 52px; background: var(--navy); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white); font-size: 1.3rem; flex-shrink: 0;
+    }
+    .sms-legal-header h2 {
+      font-family: 'Poppins', sans-serif; font-weight: 700;
+      font-size: 1.3rem; color: var(--navy);
+    }
+    .sms-legal-header p { font-size: .85rem; color: var(--text-lt); margin-top: 3px; }
+    .legal-blocks {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 20px; margin-bottom: 28px;
+    }
+    .legal-block {
+      background: var(--white); border-radius: 8px;
+      border-left: 4px solid var(--blue);
+      padding: 18px 20px;
+    }
+    .legal-block h4 {
+      font-family: 'Poppins', sans-serif; font-weight: 700;
+      font-size: .82rem; color: var(--navy); margin-bottom: 8px;
+      text-transform: uppercase; letter-spacing: .06em;
+    }
+    .legal-block p, .legal-block ul {
+      font-size: .82rem; color: var(--text-lt); line-height: 1.65;
+    }
+    .legal-block ul { padding-left: 16px; }
+    .legal-block li { margin-bottom: 4px; }
+    .legal-full {
+      background: var(--white); border-radius: 8px;
+      border: 1px solid var(--gray-bdr); padding: 20px 24px;
+    }
+    .legal-full h4 {
+      font-family: 'Poppins', sans-serif; font-weight: 700;
+      font-size: .82rem; color: var(--navy); margin-bottom: 10px;
+      text-transform: uppercase; letter-spacing: .06em;
+    }
+    .legal-full p {
+      font-size: .8rem; color: var(--text-lt); line-height: 1.7; margin-bottom: 8px;
+    }
+    .legal-full p:last-child { margin-bottom: 0; }
+    .legal-full strong { color: var(--navy); }
+    @media (max-width: 640px) {
+      .legal-blocks { grid-template-columns: 1fr; }
+    }
+
+    /* ════════════════════════
+       BOTTOM CTA
+    ════════════════════════ */
+    .bottom-cta {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      padding: 56px 0; position: relative; overflow: hidden;
+    }
+    .bottom-cta::before {
+      content: '';
+      position: absolute; top: -50%; right: -10%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(255,255,255,.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 32px; flex-wrap: wrap; position: relative;
+    }
+    .cta-text h2 {
+      font-family: 'Poppins', sans-serif; font-weight: 800;
+      font-size: clamp(1.4rem, 3vw, 1.9rem); color: var(--white); margin-bottom: 8px;
+    }
+    .cta-text p { color: rgba(255,255,255,.75); font-size: .95rem; }
+    .cta-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .cta-phone {
+      color: rgba(255,255,255,.85); font-size: .9rem;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .cta-phone i { color: var(--orange); }
+
+    /* ════════════════════════
+       FOOTER
+    ════════════════════════ */
+    .footer { background: #080F22; padding: 56px 0 28px; }
+    .footer-grid {
+      display: grid; grid-template-columns: 280px 1fr 1fr 1fr;
+      gap: 40px; margin-bottom: 48px;
+    }
+    .footer-brand img { height: 36px; margin-bottom: 16px; }
+    .footer-brand p {
+      font-size: .83rem; color: rgba(255,255,255,.5); line-height: 1.6;
+    }
+    .footer-brand .contact-links { margin-top: 20px; }
+    .footer-brand .contact-links a, .footer-brand .contact-links span {
+      display: flex; align-items: center; gap: 9px;
+      color: rgba(255,255,255,.7); font-size: .83rem; margin-bottom: 8px;
+      transition: color .2s;
+    }
+    .footer-brand .contact-links a:hover { color: var(--white); }
+    .footer-brand .contact-links i { color: var(--orange); width: 14px; }
+    .footer-col h4 {
+      font-family: 'Poppins', sans-serif; font-weight: 700;
+      font-size: .78rem; text-transform: uppercase; letter-spacing: .1em;
+      color: rgba(255,255,255,.4); margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a, .footer-col ul li span {
+      color: rgba(255,255,255,.6); font-size: .85rem;
+      transition: color .2s;
+    }
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 24px;
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 20px; flex-wrap: wrap;
+    }
+    .footer-copy { font-size: .77rem; color: rgba(255,255,255,.35); line-height: 1.6; }
+    .footer-legal-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-legal-links a {
+      font-size: .77rem; color: rgba(255,255,255,.4);
+      transition: color .2s;
+    }
+    .footer-legal-links a:hover { color: rgba(255,255,255,.7); }
+    .footer-sms-notice {
+      width: 100%; margin-top: 16px;
+      font-size: .72rem; color: rgba(255,255,255,.28);
+      line-height: 1.6; border-top: 1px solid rgba(255,255,255,.05);
+      padding-top: 14px;
+    }
+    @media (max-width: 820px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+    @media (max-width: 500px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; }
+    }
+
+    /* ════════════════════════
+       MOBILE NAV DRAWER
+    ════════════════════════ */
+    .mobile-nav {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,.7); z-index: 200;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav-panel {
+      background: var(--navy); width: 280px; height: 100%;
+      padding: 28px 24px; display: flex; flex-direction: column; gap: 6px;
+    }
+    .mobile-nav-close {
+      align-self: flex-end; background: none; border: none;
+      color: rgba(255,255,255,.7); font-size: 1.4rem; cursor: pointer; margin-bottom: 8px;
+    }
+    .mobile-nav-panel a {
+      color: rgba(255,255,255,.85); font-size: 1rem; font-weight: 500;
+      padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .mobile-phone-link {
+      display: flex; align-items: center; gap: 8px;
+      color: var(--orange) !important; font-weight: 700 !important;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════ MOBILE NAV ══════════════ -->
+<div class="mobile-nav" id="mobileNav" onclick="closeMobileNav(event)">
+  <div class="mobile-nav-panel">
+    <button class="mobile-nav-close" onclick="document.getElementById('mobileNav').classList.remove('open')">
+      <i class="fa fa-times"></i>
+    </button>
+    <a href="#how-it-works">How It Works</a>
+    <a href="#benefits">Benefits</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="tel:+18542646928" class="mobile-phone-link"><i class="fa fa-phone"></i> (854) 264-6928</a>
+  </div>
+</div>
+
+<!-- ══════════════ NAVBAR ══════════════ -->
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-inner">
+      <a class="navbar-logo" href="/">
+        <img src="ASCENT_LOGO.svg" alt="Ascent Solutions Group" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span style="display:none;font-family:'Poppins',sans-serif;font-weight:800;color:#fff;font-size:1.1rem;letter-spacing:.02em;">ASCENT<span style="color:#F07820;"> SOLUTIONS</span></span>
+      </a>
+      <ul class="navbar-links">
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#benefits">Benefits</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <div class="navbar-right">
+        <a href="tel:+18542646928" class="navbar-phone">
+          <i class="fa fa-phone"></i> (854) 264-6928
+        </a>
+        <a href="#pricing" class="btn-primary" style="font-size:.85rem;padding:10px 20px;">
+          Book a Coverage Review
+        </a>
+      </div>
+      <button class="hamburger" onclick="document.getElementById('mobileNav').classList.add('open')">
+        <i class="fa fa-bars"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <i class="fa fa-circle-check" style="color:#7DDFFF"></i>
+          <span>Exclusively for South Carolina Plumbers</span>
+        </div>
+        <h1>Never miss a plumbing emergency again.</h1>
+        <p class="hero-sub">AI-powered after-hours answering service built for plumbers.</p>
+        <p>We answer your after-hours plumbing calls, capture every detail, identify urgent issues, and send you clear call summaries — so you can respond fast and keep your customers (and reputation) flowing.</p>
+        <div class="hero-btns">
+          <a href="#pricing" class="btn-primary">Book a Coverage Review &rarr;</a>
+          <a href="#how-it-works" class="btn-outline">See How It Works &#9654;</a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item"><i class="fa fa-shield-halved"></i> 24/7 Coverage</div>
+          <div class="trust-item"><i class="fa fa-bolt"></i> Fast Response</div>
+          <div class="trust-item"><i class="fa fa-lock"></i> Secure &amp; Confidential</div>
+        </div>
+      </div>
+
+      <!-- Demo Call Card -->
+      <div class="call-card">
+        <div class="call-card-header">
+          <div>
+            <h4>New plumbing call handled</h4>
+            <p>Received Today at 11:47 PM</p>
+          </div>
+          <span class="badge">HIGH PRIORITY</span>
+        </div>
+        <div class="call-card-body">
+          <div class="call-section">
+            <div class="call-section-label"><i class="fa fa-user"></i> Caller Details</div>
+            <div class="call-row">
+              <span class="lbl">Name:</span><span class="val">Sarah Mitchell</span>
+              <span class="lbl">Phone:</span><span class="val">(555) 868-7421</span>
+              <span class="lbl">Location:</span><span class="val">456 Oak Avenue<br>Charleston, SC 29401</span>
+            </div>
+          </div>
+          <div class="call-section">
+            <div class="call-section-label"><i class="fa fa-droplet"></i> Plumbing Issue</div>
+            <div class="call-row">
+              <span class="lbl">Issue:</span><span class="val">Burst pipe in basement</span>
+              <span class="lbl">Details:</span><span class="val">Water coming through ceiling. Homeowner turned off main water.</span>
+              <span class="lbl">Urgency:</span><span class="val"><span class="urgency-chip"><i class="fa fa-triangle-exclamation"></i> Very High</span></span>
+            </div>
+          </div>
+          <div class="call-section">
+            <div class="call-section-label"><i class="fa fa-wrench"></i> Recommended Action</div>
+            <div class="call-notes">
+              <p>Dispatch recommended ASAP.<br>Customer has active leak and water damage risk.</p>
+            </div>
+          </div>
+          <div class="call-section call-notes">
+            <div class="call-section-label"><i class="fa fa-file-lines"></i> Caller Notes</div>
+            <p>No water in part of the house. Water heater not working. Customer wants earliest available plumber.</p>
+          </div>
+          <button class="call-view-btn">View Full Call Summary</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FEATURES STRIP ══════════════ -->
+<section class="features-strip" id="benefits">
+  <div class="container">
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon"><i class="fa fa-phone-volume"></i></div>
+        <h3>Capture every plumbing call</h3>
+        <p>We answer your calls 24/7 with AI-powered agents who specialize in plumbing emergencies.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"><i class="fa fa-clipboard-list"></i></div>
+        <h3>Gather key plumbing details</h3>
+        <p>We collect addresses, issue details, urgency level, and any special instructions you need.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"><i class="fa fa-bell"></i></div>
+        <h3>Prioritize urgent issues</h3>
+        <p>We identify emergencies like burst pipes, no hot water, sewer backups, and other critical problems.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"><i class="fa fa-paper-plane"></i></div>
+        <h3>Send instant call summaries</h3>
+        <p>You receive clear, detailed call summaries by text and email right away — so you can dispatch and respond fast.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ HOW IT WORKS ══════════════ -->
+<section class="how-it-works" id="how-it-works">
+  <div class="container">
+    <div class="how-header">
+      <p class="section-label">Simple Process</p>
+      <h2 class="section-title">How it works</h2>
+      <p class="section-sub" style="margin:0 auto;">From the moment your customer calls to the moment you get the alert — the whole process runs automatically, every night, every weekend, every holiday.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-icon"><i class="fa fa-phone"></i></div>
+        <h3>We answer</h3>
+        <p>Your after-hours plumbing calls are answered instantly by our AI agent, 24/7, in your company's name.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-icon"><i class="fa fa-clipboard-check"></i></div>
+        <h3>We collect</h3>
+        <p>We gather caller information, plumbing issue details, service address, and urgency level.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-icon"><i class="fa fa-triangle-exclamation"></i></div>
+        <h3>We prioritize</h3>
+        <p>We identify urgent plumbing problems and classify every call as Emergency or Non-Emergency.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-icon"><i class="fa fa-paper-plane"></i></div>
+        <h3>We deliver</h3>
+        <p>You receive an instant call summary by text and email — ready to act, no voicemail to dig through.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ STATS BAR ══════════════ -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div>
+        <div class="stat-num"><span>85</span>%</div>
+        <div class="stat-label">of emergency callers hire the first plumber who answers</div>
+      </div>
+      <div>
+        <div class="stat-num"><span>68</span>%</div>
+        <div class="stat-label">of plumbing emergencies happen outside business hours</div>
+      </div>
+      <div>
+        <div class="stat-num"><span>27</span>%</div>
+        <div class="stat-label">of plumbing calls go unanswered on average</div>
+      </div>
+      <div>
+        <div class="stat-num"><span>24</span>/7</div>
+        <div class="stat-label">coverage — nights, weekends, and holidays</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ PRICING ══════════════ -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="pricing-header">
+      <span class="pricing-note">&#9989; No long-term contracts &nbsp;|&nbsp; Cancel anytime</span>
+      <p class="section-label">Transparent Pricing</p>
+      <h2 class="section-title">Simple plans for every plumber</h2>
+      <p class="section-sub" style="margin:0 auto;">Starting at $149/month. One-time $99 setup fee on all plans. No hidden charges, no per-minute billing surprises.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <!-- STARTER -->
+      <div class="price-card">
+        <div class="price-card-header">
+          <div class="price-tier">Starter</div>
+          <div class="price-amount"><sup>$</sup>149<sub>/mo</sub></div>
+          <div class="price-setup">+ $99 one-time setup</div>
+        </div>
+        <div class="price-body">
+          <div class="price-included">Up to 75 after-hours calls/month</div>
+          <ul class="price-features">
+            <li><i class="fa fa-check"></i> 24/7 AI-powered call answering</li>
+            <li><i class="fa fa-check"></i> Emergency vs. Non-Emergency classification</li>
+            <li><i class="fa fa-check"></i> Instant SMS &amp; email call summary</li>
+            <li><i class="fa fa-check"></i> Google Sheets call log</li>
+            <li><i class="fa fa-check"></i> Custom greeting in your company name</li>
+            <li><i class="fa fa-check"></i> No long-term contracts</li>
+          </ul>
+          <div class="price-overage"><strong>Overage:</strong> $3.00 per additional call</div>
+          <a href="#enroll" class="price-cta">Get Started</a>
+        </div>
+      </div>
+
+      <!-- STANDARD (POPULAR) -->
+      <div class="price-card popular">
+        <div class="popular-badge">&#9733; Most Popular</div>
+        <div class="price-card-header" style="background:#EBF2FF;">
+          <div class="price-tier">Standard</div>
+          <div class="price-amount"><sup>$</sup>249<sub>/mo</sub></div>
+          <div class="price-setup">+ $99 one-time setup</div>
+        </div>
+        <div class="price-body">
+          <div class="price-included">Up to 150 after-hours calls/month</div>
+          <ul class="price-features">
+            <li><i class="fa fa-check"></i> Everything in Starter</li>
+            <li><i class="fa fa-check"></i> Priority emergency routing</li>
+            <li><i class="fa fa-check"></i> Safety escalation script (gas, CO, fire)</li>
+            <li><i class="fa fa-check"></i> Active damage detection</li>
+            <li><i class="fa fa-check"></i> Weekly summary report</li>
+            <li><i class="fa fa-check"></i> Dedicated account setup call</li>
+          </ul>
+          <div class="price-overage"><strong>Overage:</strong> $2.50 per additional call</div>
+          <a href="#enroll" class="price-cta">Get Started</a>
+        </div>
+      </div>
+
+      <!-- PRO -->
+      <div class="price-card">
+        <div class="price-card-header">
+          <div class="price-tier">Pro</div>
+          <div class="price-amount"><sup>$</sup>349<sub>/mo</sub></div>
+          <div class="price-setup">+ $99 one-time setup</div>
+        </div>
+        <div class="price-body">
+          <div class="price-included">Up to 300 after-hours calls/month</div>
+          <ul class="price-features">
+            <li><i class="fa fa-check"></i> Everything in Standard</li>
+            <li><i class="fa fa-check"></i> Multi-contact routing (up to 3 numbers)</li>
+            <li><i class="fa fa-check"></i> Custom urgency rules for your business</li>
+            <li><i class="fa fa-check"></i> Caller confirmation text support</li>
+            <li><i class="fa fa-check"></i> Monthly performance review call</li>
+            <li><i class="fa fa-check"></i> Priority support response</li>
+          </ul>
+          <div class="price-overage"><strong>Overage:</strong> $2.00 per additional call</div>
+          <a href="#enroll" class="price-cta">Get Started</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="pricing-disclaimer">
+      All plans cover nights, weekends, and holidays based on your approved schedule. The $99 setup fee covers your personal onboarding call, custom script configuration, and system testing before go-live.<br>
+      Need higher volume? <a href="mailto:hello@ascentsolutionsgroup.org" style="color:var(--blue);font-weight:600;">Contact us for a custom quote.</a>
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════ TESTIMONIALS ══════════════ -->
+<section class='enroll' id='enroll'>
+<style>
+.enroll{background:var(--navy);color:#fff;padding:80px 24px;}
+.enroll-inner{max-width:760px;margin:0 auto;}
+.enroll-eyebrow{color:var(--orange);font-family:'Poppins',sans-serif;font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.8rem;margin:0 0 8px;}
+.enroll h2{font-family:'Poppins',sans-serif;font-size:2rem;line-height:1.2;margin:0 0 12px;color:#fff;}
+.enroll-sub{color:#c9d4e8;font-size:1.05rem;line-height:1.6;margin:0 0 32px;}
+.enroll-form{background:#fff;color:var(--text);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow-lg);}
+.enroll-form .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.enroll-form label{display:flex;flex-direction:column;font-weight:600;font-size:.9rem;gap:6px;}
+.enroll-form label>span{color:var(--orange);}
+.enroll-form .check span{color:var(--text);font-weight:400;}
+.enroll-form input,.enroll-form select{font-family:inherit;font-size:1rem;padding:11px 12px;border:1px solid var(--gray-bdr);border-radius:6px;font-weight:400;color:var(--text);}
+.enroll-form input:focus,.enroll-form select:focus{outline:2px solid var(--blue-lt);border-color:var(--blue-lt);}
+.enroll-form .sms-box{grid-column:1/-1;margin:22px 0 6px;border:1px solid var(--gray-bdr);border-left:4px solid var(--orange);border-radius:6px;padding:18px 20px;background:var(--gray-bg);}
+.enroll-form .sms-box legend{font-family:'Poppins',sans-serif;font-weight:600;font-size:.95rem;padding:0 8px;color:var(--navy);}
+.enroll-form .check{flex-direction:row;align-items:flex-start;gap:10px;font-weight:400;font-size:.92rem;line-height:1.5;}
+.enroll-form .check input{width:18px;height:18px;margin-top:2px;flex:none;}
+.enroll-form .mobile{margin-top:16px;}
+.enroll-form .fine{font-size:.78rem;color:var(--text-lt);line-height:1.5;margin:14px 0 0;}
+.enroll-form .fine a{color:var(--blue);}
+.enroll-note{grid-column:1/-1;font-size:.85rem;color:var(--text-lt);margin:18px 0 0;}
+.enroll-note a{color:var(--blue);font-weight:600;}
+.enroll .hp{position:absolute;left:-9999px;}
+.enroll-success{grid-column:1/-1;background:#e6f4ea;border:1px solid #b7dfc4;color:#1e6b3a;padding:14px 16px;border-radius:6px;font-weight:600;margin-bottom:6px;display:none;}
+@media(max-width:640px){.enroll-form .grid{grid-template-columns:1fr;}}
+</style>
+<div class='enroll-inner'>
+<p class='enroll-eyebrow'>Get Started</p>
+<h2>Enroll your plumbing business</h2>
+<p class='enroll-sub'>Tell us where to send your after-hours call summaries. <strong>Summaries are delivered by email by default</strong> &mdash; text alerts are optional and never required to use the service.</p>
+<form name='onboarding' method='POST' data-netlify='true' netlify-honeypot='bot-field' action='/?enrolled=1#enroll' class='enroll-form'>
+<input type='hidden' name='form-name' value='onboarding' />
+<p class='hp'><label>Leave blank: <input name='bot-field' /></label></p>
+<div class='grid'>
+<div class='enroll-success' id='enrollSuccess'>Thanks! Your enrollment request was received. We will reach out shortly to finish setup.</div>
+<label>Business name <span>*</span><input type='text' name='business_name' required /></label>
+<label>Your name <span>*</span><input type='text' name='owner_name' required /></label>
+<label>Email for call summaries <span>*</span><input type='email' name='email' required /></label>
+<label>Best callback number <span>*</span><input type='tel' name='callback_number' required /></label>
+<label>Plan<select name='plan'><option>Starter &mdash; $149/mo</option><option>Standard &mdash; $249/mo</option><option>Pro &mdash; $349/mo</option><option>Not sure yet</option></select></label>
+<label>After-hours coverage window<input type='text' name='coverage_window' placeholder='e.g. weeknights 6pm-8am + weekends' /></label>
+<fieldset class='sms-box'>
+<legend>Text message alerts &mdash; optional</legend>
+<label class='check'><input type='checkbox' name='sms_optin' value='yes' /><span>Yes, <strong>also</strong> text my call summaries to the mobile number below. I understand SMS is optional and <strong>not required</strong> to create an account or use the service &mdash; I will still receive every summary by email.</span></label>
+<label class='mobile'>Mobile number for text alerts <em style='font-weight:400;color:#4A5568'>(only if you checked the box)</em><input type='tel' name='sms_mobile' /></label>
+<p class='fine'>By checking the box you consent to receive automated SMS call-summary alerts from Ascent Solutions Group. Message frequency varies by call volume. Message &amp; data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of purchase. See our <a href="/sms-terms">SMS Terms</a> and <a href='/privacy'>Privacy Policy</a>.</p>
+</fieldset>
+<button type='submit' class='btn-primary'>Submit enrollment</button>
+<p class='enroll-note'>Prefer to talk first? Call <a href='tel:+18542646928'>(854) 264-6928</a> or email <a href='mailto:hello@ascentsolutionsgroup.org'>hello@ascentsolutionsgroup.org</a>.</p>
+</div>
+</form>
+</div>
+<script>if(location.search.indexOf('enrolled=1')>-1){var s=document.getElementById('enrollSuccess');if(s){s.style.display='block';}}</script>
+</section>
+<section class="testimonials">
+  <div class="container">
+    <div class="testimonials-header">
+      <p class="section-label">What Plumbers Are Saying</p>
+      <h2 class="section-title">Built for the way plumbers actually work</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <p class="testi-text">"I was losing emergency calls every weekend to voicemail. Now I get a text within minutes of every after-hours call. I've picked up jobs I never would have known about."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">JH</div>
+          <div>
+            <div class="testi-name">James H.</div>
+            <div class="testi-company">Owner, Charleston-area Plumbing Co.</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <p class="testi-text">"The call summaries are clean and accurate. I can tell immediately if it's a true emergency or something that can wait until morning. Saves me time on every single call."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">MR</div>
+          <div>
+            <div class="testi-name">Mike R.</div>
+            <div class="testi-company">2-Truck Residential Plumber, SC</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+        <p class="testi-text">"Setup was quick and easy. The team walked me through everything. Now my after-hours calls are handled professionally even when I'm on a job or asleep."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">DT</div>
+          <div>
+            <div class="testi-name">David T.</div>
+            <div class="testi-company">Owner-Operator, Lowcountry Plumbing</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FAQ ══════════════ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="faq-inner">
+      <div class="faq-header">
+        <p class="section-label">Questions &amp; Answers</p>
+        <h2 class="section-title">Frequently asked questions</h2>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question"><span>Do you answer calls in my plumbing company's name?</span><i class="fa fa-chevron-down"></i></button>
+        <div class="faq-answer"><p>Yes. We answer every call using your approved greeting and your company name. Callers will not know they are speaking with an answering service unless you choose to disclose that.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>What plumbing details do you collect on every call?</span><i class="fa fa-chevron-down"></i></button>
+        <div class="faq-answer"><p>We capture caller name, callback number, service address, city, type of issue, whether there is active damage, and the caller's urgency level. You receive a structured summary for every call.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>How quickly will I receive the call summary?</span><i class="fa fa-chevron-down"></i></button>
+        <div class="faq-answer"><p>Emergency call summaries are sent immediately via SMS and email as soon as the call completes — typically within seconds. Non-emergency summaries follow the same process.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>How are emergency calls handled?</span><i class="fa fa-chevron-down"></i></button>
+        <div class="faq-answer"><p>Calls are classified as Emergency if the caller reports active leaking, flooding, burst pipes, sewage backup, water through the ceiling, toilet overflowing, or no water at the property. If a caller mentions a gas smell, fire, smoke, or carbon monoxide, they are directed to call 911 first — and you are still notified immediately.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>Does Ascent dispatch my technicians?</span><i class="fa fa-chevron-down"></i></button>
+        <div class="faq-answer"><p>No. Ascent answers, documents, classifies, and routes calls. Dispatch decisions, technician scheduling, and service response remain entirely with your business. We never promise a technician is on the way unless you specifically authorize that language.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>Is there a long-term contract?</span><i class="fa fa-chevron-down"></i></button>
+        <div class="faq-answer"><p>No long-term contracts. All plans are billed monthly and you can cancel at any time. The only one-time fee is the $99 setup fee, which covers your onboarding, script configuration, and system testing.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>Can I set my own after-hours schedule?</span><i class="fa fa-chevron-down"></i></button>
+        <div class="faq-answer"><p>Yes. During onboarding, you tell us your business hours and after-hours coverage window, including nights, weekends, and holidays. We only answer calls according to your approved schedule.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>What if I receive more calls than my plan includes?</span><i class="fa fa-chevron-down"></i></button>
+        <div class="faq-answer"><p>All calls above your monthly limit are handled and billed at the per-call overage rate for your plan (Starter: $3.00/call, Standard: $2.50/call, Pro: $2.00/call). We never drop a call because you've exceeded your limit.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question"><span>How do I get started?</span><i class="fa fa-chevron-down"></i></button>
+        <div class="faq-answer"><p>Book a free coverage review using the button above, or call us at (854) 264-6928, or email hello@ascentsolutionsgroup.org. We'll walk you through setup, configure your script, run test calls, and have you live typically within 3–5 business days.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ SMS / TWILIO LEGAL ══════════════ -->
+<section class="sms-legal" id="sms-terms">
+  <div class="container">
+    <div class="sms-legal-inner">
+      <div class="sms-legal-header">
+        <div class="icon-wrap"><i class="fa fa-mobile-screen-button"></i></div>
+        <div>
+          <h2>SMS Messaging &amp; Communications Compliance</h2>
+          <p>Transparency about how text message alerts work within our service</p>
+        </div>
+      </div>
+
+      <div class="legal-blocks">
+        <div class="legal-block">
+          <h4>SMS Opt-In &amp; Consent</h4>
+          <p>SMS is optional. Every client receives after-hours call summaries by email. Clients who also want summaries by text opt in separately on our SMS opt-in page by checking a box that is unchecked by default. Consent to receive SMS is not a condition of purchasing, starting, or continuing our service, and is not required to complete any transaction — clients who do not opt in receive the same service at the same price. You may withdraw consent at any time by replying STOP, with no effect on your answering service.</p>
+          <p style="margin-top:8px;">Consent to receive SMS is not a condition of purchasing our service. You may opt out at any time by replying <strong>STOP</strong> to any message or by contacting us directly.</p>
+        </div>
+        <div class="legal-block">
+          <h4>Message Frequency &amp; Rates</h4>
+          <ul>
+            <li>Message frequency varies based on your call volume. You will receive one SMS alert per handled call, plus any scheduled weekly reports you have enabled.</li>
+            <li><strong>Message and data rates may apply</strong> depending on your mobile carrier and plan.</li>
+            <li>Ascent Solutions Group is not responsible for charges imposed by your wireless carrier.</li>
+            <li>For questions about your carrier's rates, contact your mobile provider directly.</li>
+          </ul>
+        </div>
+        <div class="legal-block">
+          <h4>How to Opt Out (STOP)</h4>
+          <p>To stop receiving SMS notifications at any time, reply <strong>STOP</strong> to any message we send. You will receive a one-time confirmation that your opt-out request has been processed. After that, no further messages will be sent to that number unless you re-enroll.</p>
+          <p style="margin-top:8px;">To re-enroll, text <strong>START</strong> to our messaging number or contact us at hello@ascentsolutionsgroup.org.</p>
+        </div>
+        <div class="legal-block">
+          <h4>Help &amp; Support</h4>
+          <p>For assistance with SMS messaging, reply <strong>HELP</strong> to any text message or contact us:</p>
+          <ul style="margin-top:6px;">
+            <li>📞 <a href="tel:+18542646928" style="color:var(--blue);font-weight:600;">(854) 264-6928</a></li>
+            <li>✉️ <a href="mailto:hello@ascentsolutionsgroup.org" style="color:var(--blue);font-weight:600;">hello@ascentsolutionsgroup.org</a></li>
+            <li>Monday–Friday 9 AM–5 PM ET</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="legal-full">
+        <h4>Important Disclosures — SMS Messaging via Twilio</h4>
+        <p>Ascent Solutions Group uses Twilio, Inc. as its SMS messaging infrastructure provider to deliver call summary alerts and service notifications to enrolled clients. By using our service, you acknowledge that your phone number and call-related data may be processed by Twilio in accordance with <strong>Twilio's Acceptable Use Policy</strong> and <strong>Twilio's Messaging Policy</strong>.</p>
+        <p><strong>End-Consumer SMS Notice:</strong> Where our service delivers optional confirmation text messages to your customers (the callers who contact your plumbing business after hours), those messages are sent only when you have authorized this feature and confirmed that your customers have appropriate notice that they may receive a text. You, as the plumbing business client, are responsible for ensuring that any confirmation texts to your customers comply with the Telephone Consumer Protection Act (TCPA) and all applicable carrier guidelines. Ascent Solutions Group will only send customer-facing messages on your behalf when this feature is explicitly enabled and authorized in your account settings.</p>
+        <p><strong>TCPA Compliance:</strong> Ascent Solutions Group is committed to compliance with the Telephone Consumer Protection Act (TCPA), the CAN-SPAM Act, and all CTIA Messaging Principles. We do not send unsolicited text messages. All SMS communications are sent only to individuals who have provided express written consent. If you believe you have received a message in error, please contact us immediately at hello@ascentsolutionsgroup.org or reply STOP to opt out.</p>
+        <p><strong>Data &amp; Privacy:</strong> Phone numbers collected for SMS notification purposes are used solely for delivering call alerts related to your Ascent Solutions Group account. We do not sell or share your phone number with third parties for marketing purposes. For full details, please review our <a href='/privacy' style='color:var(--blue);font-weight:600;'>Privacy Policy</a> and <a href='/terms' style='color:var(--blue);font-weight:600;'>Terms of Service</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ BOTTOM CTA ══════════════ -->
+<section class="bottom-cta">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="cta-text">
+        <h2>Don't miss another plumbing emergency.</h2>
+        <p>We're here when your customers need you most.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="#pricing" class="btn-primary">Book a Coverage Review &rarr;</a>
+        <div class="cta-phone"><i class="fa fa-phone"></i> Or call &nbsp;<a href="tel:+18542646928" style="color:#fff;font-weight:700;">(854) 264-6928</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="ASCENT_LOGO.svg" alt="Ascent Solutions Group" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span style="display:none;font-family:'Poppins',sans-serif;font-weight:800;color:#fff;font-size:1.1rem;">ASCENT SOLUTIONS GROUP</span>
+        <p style="margin-top:12px;">AI-powered after-hours plumbing answering service. Built exclusively for small plumbing companies in South Carolina and beyond.</p>
+        <div class="contact-links">
+          <a href="tel:+18542646928"><i class="fa fa-phone"></i> (854) 264-6928</a>
+          <a href="mailto:hello@ascentsolutionsgroup.org"><i class="fa fa-envelope"></i> hello@ascentsolutionsgroup.org</a>
+          <span><i class="fa fa-map-pin"></i> South Carolina, USA</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#benefits">Benefits</a></li>
+          <li><a href="#pricing">Pricing Plans</a></li>
+          <li><a href="mailto:hello@ascentsolutionsgroup.org">Book a Coverage Review</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>We Answer For</h4>
+        <ul>
+          <li><span>Residential Plumbers</span></li>
+          <li><span>Emergency Plumbing</span></li>
+          <li><span>Drain &amp; Sewer Services</span></li>
+          <li><span>Water Heater Companies</span></li>
+          <li><span>HVAC (Coming Soon)</span></li>
+          <li><span>Electricians (Coming Soon)</span></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>South Carolina Areas</h4>
+        <ul>
+          <li><span>Charleston (843 / 854)</span></li>
+          <li><span>Columbia (803 / 839)</span></li>
+          <li><span>Greenville / Spartanburg (864)</span></li>
+          <li><span>Myrtle Beach (843)</span></li>
+          <li><span>Hilton Head (843)</span></li>
+          <li><span>Statewide Coverage</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-copy">
+        &copy; 2026 Ascent Solutions Group. All rights reserved.<br>
+        After-Hours Plumbing Answering Service | South Carolina
+      </div>
+      <div class="footer-legal-links">
+        <a href='/privacy'>Privacy Policy</a>
+        <a href='/terms'>Terms of Service</a>
+        <a href="#sms-terms">SMS Terms</a>
+        <a href='/accessibility'>Accessibility</a>
+        <a href="mailto:hello@ascentsolutionsgroup.org">Contact Us</a>
+      </div>
+      <div class="footer-sms-notice">
+        <strong style="color:rgba(255,255,255,.4);">SMS DISCLOSURE:</strong> Ascent Solutions Group sends after-hours call alerts by email to all clients; SMS delivery is optional and requires a separate opt-in at ascentsolutionsgroup.org/sms-opt-in. Consent to receive SMS is not a condition of purchasing or using our service, and opting out does not affect your service. Message frequency varies by call volume. Message and data rates may apply. Reply STOP to opt out at any time. Reply HELP for assistance. Carrier is not liable for delayed or undelivered messages. SMS messaging is provided via Twilio, Inc. and subject to Twilio's Acceptable Use Policy. Consent to receive SMS is not required as a condition of service. See our <a href='/privacy' style='color:rgba(255,255,255,.45);text-decoration:underline;'>Privacy Policy</a> and <a href='/terms' style='color:rgba(255,255,255,.45);text-decoration:underline;'>Terms of Service</a> for full details.
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Mobile nav close on backdrop click
+  function closeMobileNav(e) {
+    if (e.target === document.getElementById('mobileNav')) {
+      document.getElementById('mobileNav').classList.remove('open');
+    }
+  }
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.getElementById('mobileNav').classList.remove('open');
+      }
+    });
+  });
+</script>
+</body>
+</html>
